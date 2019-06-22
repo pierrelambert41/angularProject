@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-user-profile',
@@ -7,13 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProfileComponent implements OnInit {
 
-  User = {
+  user = {
     name: 'Lambert',
-    fistname: 'Pierre',
+    firstname: 'Pierre',
     age: 25,
     quote: '',
     photo: 'https://randomuser.me/api/portraits/lego/2.jpg'
   };
+
+  disable: boolean = false;
+
+  onClick() {
+    if (this.disable) {
+      this.disable = false
+    } else {
+      this.disable = true;
+    }
+  }
 
   constructor() { }
 
